@@ -54,6 +54,11 @@ void my_class::set_name(const char *name)
     m_name = name;
 }
 
+my_char_ptr my_class::get_name_ptr() const
+{
+    return my_char_ptr(m_name.c_str(), m_name.size());
+}
+
 // Reference:
 // https://www.boost.org/doc/libs/1_74_0/libs/python/doc/html/tutorial/tutorial/exposing.html
 void my_class::export_class()
@@ -61,4 +66,5 @@ void my_class::export_class()
     boost::python::class_<my_class> cls("my_class");
     cls.def("say_hello", &my_class::say_hello);
     cls.add_property("name", &my_class::get_name, &my_class::set_name);
+    cls.add_property("name_ptr", &my_class::get_name_ptr);
 }

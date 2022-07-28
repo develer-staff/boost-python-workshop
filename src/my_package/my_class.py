@@ -14,6 +14,10 @@ class my_class:
     def name(self, value) -> None:
         self._my_class.name = value
 
+    @property
+    def name_ptr(self) -> memoryview:
+        return self._my_class.name_ptr
+
     def say_hello_from_python(self) -> None:
         print("[Py ] Hello there! I'm a Python function.")
 

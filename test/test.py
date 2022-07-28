@@ -20,6 +20,9 @@ def main() -> None:
     print(">>> print(type(a.name), a.name)")
     print(type(a.name), a.name)
 
+    print(">>> print(type(a.name_ptr), a.name_ptr, a.name_ptr.tobytes())")
+    print(type(a.name_ptr), a.name_ptr, a.name_ptr.tobytes())
+
     print(">>> a = None")
     a = None
 
