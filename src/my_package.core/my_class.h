@@ -31,6 +31,8 @@ public:
 
     my_byte_array get_name_as_bytes() const;
 
+    void set_name_as_bytes(const my_byte_array &name);
+
     static void export_class();
 
 private:

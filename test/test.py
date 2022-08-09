@@ -43,6 +43,13 @@ def main() -> None:
     print(name_bytes)
 
 
+    print(">>> a.name_bytes = \"John Coltrane\".encode(\"utf-8\")")
+    a.name_bytes = "John Coltrane".encode('utf-8')
+
+    print(">>> print(a.name)")
+    print(a.name)
+
+
     print(">>> a = None")
     a = None
 

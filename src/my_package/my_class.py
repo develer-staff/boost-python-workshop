@@ -25,6 +25,10 @@ class my_class:
     def name_bytes(self) -> bytes:
         return self._my_class.name_bytes
 
+    @name_bytes.setter
+    def name_bytes(self, value) -> None:
+        self._my_class.name_bytes = value
+
     def say_hello_from_python(self) -> None:
         print("[Py ] Hello there! I'm a Python function.")
 
