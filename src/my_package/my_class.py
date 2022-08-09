@@ -18,6 +18,9 @@ class my_class:
     def name_ptr(self) -> memoryview:
         return self._my_class.name_ptr
 
+    def set_name_in_place(self, name:str) -> None:
+        self._my_class.set_name_in_place(name)
+
     def say_hello_from_python(self) -> None:
         print("[Py ] Hello there! I'm a Python function.")
 

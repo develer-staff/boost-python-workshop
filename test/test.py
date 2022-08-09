@@ -20,8 +20,17 @@ def main() -> None:
     print(">>> print(type(a.name), a.name)")
     print(type(a.name), a.name)
 
-    print(">>> print(type(a.name_ptr), a.name_ptr, a.name_ptr.tobytes())")
-    print(type(a.name_ptr), a.name_ptr, a.name_ptr.tobytes())
+    print(">>> name_ptr = a.name_ptr")
+    name_ptr = a.name_ptr
+
+    print(">>> print(type(name_ptr), name_ptr, name_ptr.tobytes())")
+    print(type(name_ptr), name_ptr, name_ptr.tobytes())
+
+    print(">>> a.set_name_in_place(\"Mindy\")")
+    a.set_name_in_place("Mindy")
+
+    print(">>> print(name_ptr, name_ptr.tobytes())")
+    print(name_ptr, name_ptr.tobytes())
 
     print(">>> a = None")
     a = None
