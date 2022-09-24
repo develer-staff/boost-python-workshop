@@ -26,11 +26,22 @@ def main() -> None:
     print(">>> print(type(name_ptr), name_ptr, name_ptr.tobytes())")
     print(type(name_ptr), name_ptr, name_ptr.tobytes())
 
+    print(">>> name_bytes = a.name_bytes")
+    name_bytes = a.name_bytes
+
+    print(">>> print(type(name_bytes), name_bytes)")
+    print(type(name_bytes), name_bytes)
+
+
     print(">>> a.set_name_in_place(\"Mindy\")")
     a.set_name_in_place("Mindy")
 
     print(">>> print(name_ptr, name_ptr.tobytes())")
     print(name_ptr, name_ptr.tobytes())
+
+    print(">>> print(name_bytes)")
+    print(name_bytes)
+
 
     print(">>> a = None")
     a = None

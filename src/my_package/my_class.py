@@ -21,6 +21,10 @@ class my_class:
     def set_name_in_place(self, name:str) -> None:
         self._my_class.set_name_in_place(name)
 
+    @property
+    def name_bytes(self) -> bytes:
+        return self._my_class.name_bytes
+
     def say_hello_from_python(self) -> None:
         print("[Py ] Hello there! I'm a Python function.")
 

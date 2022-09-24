@@ -67,6 +67,13 @@ void my_class::set_name_in_place(const char *name)
     std::cout << "[C++] setting name in place: " << chars_to_copy << " chars replaced." << std::endl;
 }
 
+my_byte_array my_class::get_name_as_bytes() const
+{
+    const auto begin = reinterpret_cast<const uint8_t *>(m_name.c_str());
+    const auto end = begin + m_name.length();
+    return my_byte_array(begin, end);
+}
+
 // Reference:
 // https://www.boost.org/doc/libs/1_74_0/libs/python/doc/html/tutorial/tutorial/exposing.html
 void my_class::export_class()
@@ -76,4 +83,5 @@ void my_class::export_class()
     cls.def("set_name_in_place", &my_class::set_name_in_place);
     cls.add_property("name", &my_class::get_name, &my_class::set_name);
     cls.add_property("name_ptr", &my_class::get_name_ptr);
+    cls.add_property("name_bytes", &my_class::get_name_as_bytes);
 }
