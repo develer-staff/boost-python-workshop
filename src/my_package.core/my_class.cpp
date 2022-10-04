@@ -4,6 +4,8 @@
 
 #include <boost/python.hpp>
 
+#include "my_exception.h"
+
 my_class::my_class()
 {
     std::cout << "[C++] my_class constructor." << std::endl;
@@ -80,12 +82,18 @@ void my_class::set_name_as_bytes(const my_byte_array &name)
     m_name = std::string(begin, name.size());
 }
 
+void my_class::sabotage()
+{
+    throw my_exception("This is my error string");
+}
+
 // Reference:
 // https://www.boost.org/doc/libs/1_74_0/libs/python/doc/html/tutorial/tutorial/exposing.html
 void my_class::export_class()
 {
     boost::python::class_<my_class> cls("my_class");
     cls.def("say_hello", &my_class::say_hello);
+    cls.def("sabotage", &my_class::sabotage);
     cls.def("set_name_in_place", &my_class::set_name_in_place);
     cls.add_property("name", &my_class::get_name, &my_class::set_name);
     cls.add_property("name_ptr", &my_class::get_name_ptr);

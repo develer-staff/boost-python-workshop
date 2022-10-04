@@ -34,3 +34,6 @@ class my_class:
 
     def say_hello_from_cpp(self) -> None:
         self._my_class.say_hello()
+
+    def sabotage(self) -> None:
+        self._my_class.sabotage()

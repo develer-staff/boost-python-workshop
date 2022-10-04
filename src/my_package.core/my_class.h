@@ -33,6 +33,8 @@ public:
 
     void set_name_as_bytes(const my_byte_array &name);
 
+    void sabotage();
+
     static void export_class();
 
 private:
