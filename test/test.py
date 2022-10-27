@@ -9,6 +9,10 @@ def main() -> None:
 
     a.say_hello()
 
+    a.name = "Monty Python"
+    print("type(a.name) =", type(a.name))
+    print("a.name =", a.name)
+
     print("Done.")
 
 
