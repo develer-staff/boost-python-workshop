@@ -14,4 +14,5 @@ void my_class::say_hello() const
 void my_class::export_class()
 {
     boost::python::class_<my_class> my_class_("my_class");
+    my_class_.def("say_hello", &my_class::say_hello);
 }
