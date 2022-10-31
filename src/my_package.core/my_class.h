@@ -2,6 +2,8 @@
 
 #include <string>
 
+#include "my_char_ptr.h"
+
 class my_class
 {
 public:
@@ -9,6 +11,8 @@ public:
 
     const char* get_name() const;
     void set_name(const char* name);
+
+    my_char_ptr get_name_ptr() const;
 
     static void export_class();
 
