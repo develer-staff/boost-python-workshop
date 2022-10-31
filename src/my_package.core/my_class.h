@@ -6,6 +6,7 @@
 
 #include "my_byte_array.h"
 #include "my_char_ptr.h"
+#include "my_item.h"
 
 class my_class
 {
@@ -27,10 +28,15 @@ public:
     boost::python::list get_str_list() const;
     void set_str_list(const boost::python::list& list);
 
+    boost::python::list get_item_list() const;
+    void set_item_list(const boost::python::list& list);
+
     static void export_class();
 
 private:
     std::string m_name;
 
     std::vector<std::string> m_str_list;
+
+    std::vector<my_item> m_item_list;
 };

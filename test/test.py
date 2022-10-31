@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from my_package import my_class
+from my_package import my_item
 
 
 def main() -> None:
@@ -35,6 +36,14 @@ def main() -> None:
     print("a.str_list =", a.str_list)
     a.str_list = ["first string", "second string", "third string"]
     print("a.str_list =", a.str_list)
+
+    print("type(a.item_list) =", type(a.item_list))
+    print("a.item_list =", a.item_list)
+    a.item_list = [
+        my_item.from_str("first item"),
+        my_item.from_str("second item"),
+    ]
+    print("a.item_list =", a.item_list)
 
     print("Done.")
 

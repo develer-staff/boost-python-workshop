@@ -83,6 +83,35 @@ void my_class::set_str_list(const boost::python::list& list)
               << std::endl;
 }
 
+boost::python::list my_class::get_item_list() const
+{
+    boost::python::list list;
+    for (const auto& item : m_item_list)
+        list.append(item);
+
+    return list;
+}
+
+void my_class::set_item_list(const boost::python::list& list)
+{
+    m_item_list.clear();
+    for (int i = 0; i < boost::python::len(list); ++i)
+    {
+        const auto item = boost::python::extract<my_item>(list[i]);
+        m_item_list.push_back(item);
+    }
+
+    // Just a fancy log:
+    std::vector<std::string> quoted;
+    std::transform(
+            m_item_list.begin(),
+            m_item_list.end(),
+            std::back_inserter(quoted),
+            [](const auto& item) { return "my_item('" + std::string(item.get_name()) + "'"; });
+    std::cout << "my_class::set_item_list([" << boost::algorithm::join(quoted, ", ") << "])"
+              << std::endl;
+}
+
 // Reference:
 // https://www.boost.org/doc/libs/1_74_0/libs/python/doc/html/tutorial/tutorial/exposing.html
 void my_class::export_class()
@@ -96,4 +125,5 @@ void my_class::export_class()
     my_class_.add_property(
             "name_as_bytes", &my_class::get_name_as_bytes, &my_class::set_name_as_bytes);
     my_class_.add_property("str_list", &my_class::get_str_list, &my_class::set_str_list);
+    my_class_.add_property("item_list", &my_class::get_item_list, &my_class::set_item_list);
 }
