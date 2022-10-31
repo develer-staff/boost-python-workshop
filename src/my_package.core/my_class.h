@@ -2,6 +2,7 @@
 
 #include <string>
 
+#include "my_byte_array.h"
 #include "my_char_ptr.h"
 
 class my_class
@@ -15,6 +16,9 @@ public:
     my_char_ptr get_name_ptr() const;
 
     void set_name_in_place(const char* name);
+
+    my_byte_array get_name_as_bytes() const;
+    void set_name_as_bytes(const my_byte_array& name);
 
     static void export_class();
 

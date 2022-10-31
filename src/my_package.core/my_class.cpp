@@ -34,6 +34,19 @@ void my_class::set_name_in_place(const char* name)
               << " chars replaced." << std::endl;
 }
 
+my_byte_array my_class::get_name_as_bytes() const
+{
+    const auto begin = reinterpret_cast<const uint8_t*>(m_name.c_str());
+    const auto end = begin + m_name.length();
+    return my_byte_array(begin, end);
+}
+
+void my_class::set_name_as_bytes(const my_byte_array& name)
+{
+    const auto begin = reinterpret_cast<const char*>(name.data());
+    m_name = std::string(begin, name.size());
+}
+
 // Reference:
 // https://www.boost.org/doc/libs/1_74_0/libs/python/doc/html/tutorial/tutorial/exposing.html
 void my_class::export_class()
