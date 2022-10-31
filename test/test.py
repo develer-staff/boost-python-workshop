@@ -13,6 +13,10 @@ def main() -> None:
     print("type(a.name) =", type(a.name))
     print("a.name =", a.name)
 
+    print("type(a.name_ptr) =", type(a.name_ptr))
+    print("a.name_ptr =", a.name_ptr)
+    print("a.name_ptr.tobytes() =", a.name_ptr.tobytes())
+
     print("Done.")
 
 

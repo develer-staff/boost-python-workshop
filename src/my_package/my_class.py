@@ -15,3 +15,7 @@ class my_class:
     @name.setter
     def name(self, value: str) -> None:
         self._my_class.name = value
+
+    @property
+    def name_ptr(self) -> memoryview:
+        return self._my_class.name_ptr
