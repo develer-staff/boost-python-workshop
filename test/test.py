@@ -20,6 +20,12 @@ def main() -> None:
     a.set_name_in_place("Mindy")
     print("ptr.tobytes() =", ptr.tobytes())
 
+    print("type(a.name_as_bytes) =", type(a.name_as_bytes))
+    print("a.name_as_bytes =", a.name_as_bytes)
+    a.name_as_bytes = b"John Coltrane"
+    print("a.name_as_bytes =", a.name_as_bytes)
+    print("a.name =", a.name)
+
     print("Done.")
 
 

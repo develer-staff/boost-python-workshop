@@ -22,3 +22,11 @@ class my_class:
 
     def set_name_in_place(self, name: str) -> None:
         self._my_class.set_name_in_place(name)
+
+    @property
+    def name_as_bytes(self) -> bytes:
+        return self._my_class.name_as_bytes
+
+    @name_as_bytes.setter
+    def name_as_bytes(self, value) -> None:
+        self._my_class.name_as_bytes = value
