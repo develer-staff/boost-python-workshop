@@ -13,9 +13,12 @@ def main() -> None:
     print("type(a.name) =", type(a.name))
     print("a.name =", a.name)
 
-    print("type(a.name_ptr) =", type(a.name_ptr))
-    print("a.name_ptr =", a.name_ptr)
-    print("a.name_ptr.tobytes() =", a.name_ptr.tobytes())
+    ptr = a.name_ptr  # Note: ptr is a local variable!
+    print("type(ptr) =", type(ptr))
+    print("ptr =", ptr)
+    print("ptr.tobytes() =", ptr.tobytes())
+    a.set_name_in_place("Mindy")
+    print("ptr.tobytes() =", ptr.tobytes())
 
     print("Done.")
 

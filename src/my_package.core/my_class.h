@@ -14,6 +14,8 @@ public:
 
     my_char_ptr get_name_ptr() const;
 
+    void set_name_in_place(const char* name);
+
     static void export_class();
 
 private:

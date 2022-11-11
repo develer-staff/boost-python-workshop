@@ -19,3 +19,6 @@ class my_class:
     @property
     def name_ptr(self) -> memoryview:
         return self._my_class.name_ptr
+
+    def set_name_in_place(self, name: str) -> None:
+        self._my_class.set_name_in_place(name)
