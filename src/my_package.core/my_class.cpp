@@ -60,6 +60,7 @@ void my_class::export_class()
 {
     boost::python::class_<my_class> my_class_("my_class");
     my_class_.def("say_hello", &my_class::say_hello);
+    my_class_.def("sabotage", &my_class::sabotage);
     my_class_.add_property("name", &my_class::get_name, &my_class::set_name);
     my_class_.add_property("name_ptr", &my_class::get_name_ptr);
     my_class_.def("set_name_in_place", &my_class::set_name_in_place);

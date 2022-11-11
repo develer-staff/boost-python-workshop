@@ -8,6 +8,9 @@ class my_class:
     def say_hello(self) -> None:
         self._my_class.say_hello()
 
+    def sabotage(self) -> None:
+        self._my_class.sabotage()
+
     @property
     def name(self) -> str:
         return self._my_class.name
