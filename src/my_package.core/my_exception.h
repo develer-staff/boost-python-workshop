@@ -10,6 +10,8 @@ public:
 
     const char* what() const noexcept override;
 
+    static void translate(const my_exception& e);
+
 private:
     std::string m_what;
 };

@@ -26,6 +26,11 @@ def main() -> None:
     print("a.name_as_bytes =", a.name_as_bytes)
     print("a.name =", a.name)
 
+    try:
+        a.sabotage()
+    except RuntimeError as err:
+        print("Error:", err)
+
     print("Done.")
 
 
