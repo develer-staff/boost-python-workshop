@@ -2,6 +2,7 @@
 
 #include <iostream>
 
+#include <boost/algorithm/string/join.hpp>
 #include <boost/python.hpp>
 
 #include "my_exception.h"
@@ -54,6 +55,34 @@ void my_class::set_name_as_bytes(const my_byte_array& name)
     m_name = std::string(begin, name.size());
 }
 
+boost::python::list my_class::get_str_list() const
+{
+    boost::python::list list;
+    for (const auto& str : m_str_list)
+        list.append(str);
+
+    return list;
+}
+
+void my_class::set_str_list(const boost::python::list& list)
+{
+    m_str_list.clear();
+    for (int i = 0; i < boost::python::len(list); ++i)
+    {
+        const auto str = boost::python::extract<std::string>(list[i]);
+        m_str_list.push_back(str);
+    }
+
+    // Just a fancy log:
+    std::vector<std::string> quoted;
+    std::transform(m_str_list.begin(),
+                   m_str_list.end(),
+                   std::back_inserter(quoted),
+                   [](const auto& str) { return "'" + str + "'"; });
+    std::cout << "my_class::set_list([" << boost::algorithm::join(quoted, ", ") << "])"
+              << std::endl;
+}
+
 // Reference:
 // https://www.boost.org/doc/libs/1_74_0/libs/python/doc/html/tutorial/tutorial/exposing.html
 void my_class::export_class()
@@ -66,4 +95,5 @@ void my_class::export_class()
     my_class_.def("set_name_in_place", &my_class::set_name_in_place);
     my_class_.add_property(
             "name_as_bytes", &my_class::get_name_as_bytes, &my_class::set_name_as_bytes);
+    my_class_.add_property("str_list", &my_class::get_str_list, &my_class::set_str_list);
 }

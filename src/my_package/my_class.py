@@ -33,3 +33,11 @@ class my_class:
     @name_as_bytes.setter
     def name_as_bytes(self, value) -> None:
         self._my_class.name_as_bytes = value
+
+    @property
+    def str_list(self) -> list[str]:
+        return self._my_class.str_list
+
+    @str_list.setter
+    def str_list(self, value: list[str]) -> None:
+        self._my_class.str_list = value

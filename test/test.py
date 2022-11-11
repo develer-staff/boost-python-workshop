@@ -31,6 +31,11 @@ def main() -> None:
     except RuntimeError as err:
         print("Error:", err)
 
+    print("type(a.str_list) =", type(a.str_list))
+    print("a.str_list =", a.str_list)
+    a.str_list = ["first string", "second string", "third string"]
+    print("a.str_list =", a.str_list)
+
     print("Done.")
 
 
