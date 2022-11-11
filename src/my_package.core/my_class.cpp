@@ -4,9 +4,16 @@
 
 #include <boost/python.hpp>
 
+#include "my_exception.h"
+
 void my_class::say_hello() const
 {
     std::cout << "Hello there! I'm a C++ method." << std::endl;
+}
+
+void my_class::sabotage()
+{
+    throw my_exception("This is my error string");
 }
 
 const char* my_class::get_name() const

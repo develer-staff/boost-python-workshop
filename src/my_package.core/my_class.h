@@ -10,6 +10,8 @@ class my_class
 public:
     void say_hello() const;
 
+    void sabotage();
+
     const char* get_name() const;
     void set_name(const char* name);
 
