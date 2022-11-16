@@ -1,0 +1,17 @@
+FROM ubuntu:jammy-20220531@sha256:bace9fb0d5923a675c894d5c815da75ffe35e24970166a48a4460a48ae6e0d19
+
+RUN apt update \
+    && apt install build-essential \
+                   python3.10-dev \
+                   python3-build \
+                   python3-pip \
+                   python3-setuptools \
+                   python3-venv \
+                   python-is-python3 \
+                   libboost-python1.74-dev \
+                   git \
+                   git-lfs \
+                   -y \
+    && apt clean
+
+CMD /bin/bash

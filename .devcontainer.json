@@ -1,0 +1,10 @@
+{
+    "dockerFile": "docker/DockerFile",
+    "runArgs": ["--rm"],
+    "extensions": [
+        "ms-python.black-formatter",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-vscode.cpptools-extension-pack"
+    ]
+}
